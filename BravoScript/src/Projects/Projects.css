@@ -1,0 +1,121 @@
+.Pro-container{
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.Pro-contain {
+    background-image: url('../assets/Projects.png');
+    background-size: cover; 
+    background-position: center; 
+    height: 90vh; 
+    width: 90%; 
+    padding:  5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    text-align: center;
+}
+
+.Pro-contain .text{
+    text-align: center;
+    margin-bottom: 100px;
+    background: transparent;
+}
+
+.Pro-contain .text  img{
+    height: 15px;
+    margin-bottom: 10px;
+}
+
+.Pro-contain .text h1{
+    font-size: 50px;
+    line-height: 1;
+    letter-spacing: 2px;
+    background: transparent;
+}
+
+.Pro-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.Pro-cards .Pro-one-clo{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Pro-cards .Pro-one-clo .Pro-one-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.Pro-cards .Pro-one-clo .Pro-one-row .Pro-one-clom img{
+    width: 700px;
+    height: 300px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.Pro-cards .Pro-one-clo .Pro-one-row .Pro-two-clom img{
+    width: 400px;
+    height: 300px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.Pro-cards .Pro-one-clo .Pro-two-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.Pro-cards .Pro-one-clo .Pro-two-row .Pro-two-clom img{
+    width: 400px;
+    height: 300px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.Pro-cards .Pro-one-clo .Pro-two-row .Pro-one-clom img{
+    width: 700px;
+    height: 300px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.Pro-cards .Pro-two-clo img{
+    height: 625px;
+    width: 400px;
+    border-radius: 20px;
+}
+
+
+.Pro-cards .Pro-one-clo .Pro-one-row .Pro-one-clom img:hover{
+    opacity: 45%;
+    transition: 1s;
+}
+
+.Pro-cards .Pro-one-clo .Pro-one-row .Pro-two-clom img:hover{
+    opacity: 45%;
+    transition: 1s;
+}
+
+.Pro-cards .Pro-one-clo .Pro-two-row .Pro-two-clom img:hover{
+    opacity: 45%;
+    transition: 1s;
+}
+
+.Pro-cards .Pro-one-clo .Pro-two-row .Pro-one-clom img:hover{
+    opacity: 45%;
+    transition: 1s;
+}
+
+.Pro-cards .Pro-two-clo img:hover{
+    opacity: 45%;
+    transition: 1s;
+}

@@ -1,0 +1,82 @@
+.Team-container{
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.Team-contain{
+    background-color: #fff;
+    height: 95vh; 
+    width: 90%; 
+    padding:  5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 70px;
+    text-align: center;
+}
+
+.Team-cards{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.Team-text img{
+    height: 15px;
+}
+
+.Team-Details img{
+    cursor: pointer;
+}
+
+.Team-Details img:hover{
+    opacity: 45%;
+    transition: 1s;
+}
+
+.Team-text h1{
+    font-size: 50px;
+    line-height: 1;
+    letter-spacing: 2px;
+    background: transparent;
+}
+
+.Team-text p{
+    color: #383838;
+    margin-top: 70px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    background: transparent;
+}
+
+.Team-cards .Team-Details h6{
+    font-size: 25px;
+    background-image: linear-gradient(90deg, #ff0000 0%, #000000 25%, #ff0000 50%, #000000 75%, #ff0000 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+    cursor: pointer;
+}
+
+.Team-cards .Team-Details p{
+    font-size: 15px;
+    opacity: 65%;
+    cursor: pointer;
+}
+
+.Team-cards .Team-social{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.Team-cards .Team-social img{
+    width: 50px;
+    cursor: pointer;
+}
+
+
+  
