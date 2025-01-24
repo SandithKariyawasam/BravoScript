@@ -8,6 +8,7 @@ import Projects from './Projects/Projects'
 import Feedback from './Feedback/Feedback'
 import Team from './Team/Team'
 import Contact from './Contact/Contact'
+import Footer from './Footer/Footer'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Feedback/>
       <Team/>
       <Contact/>
+      <Footer/>
     </div>
   )
 }

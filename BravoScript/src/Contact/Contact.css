@@ -53,7 +53,7 @@
 
 .Con-form h3{
     font-size: 25px;
-    opacity: 80%;
+    opacity: 90%;
     text-align: center;
     margin-top: 35px;
     margin-bottom: 50px;
@@ -191,7 +191,7 @@
     height: 100px;
     outline: none;
     padding: 15px;
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 40px;
     max-height: 130px;
     caret-color: #fe0000;
@@ -199,10 +199,6 @@
   }
   textarea::placeholder{
     color: #7e7e7e;
-  }
-  textarea:is(:focus, :valid){
-    padding: 14px;
-    border: 2px solid #a70000;
   }
   textarea::-webkit-scrollbar{
     width: 0px;

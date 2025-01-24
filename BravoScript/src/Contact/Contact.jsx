@@ -17,7 +17,6 @@ const Contact = () => {
     setDropdownOpen(false);
   };
 
-  // Auto-resize textarea function
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
