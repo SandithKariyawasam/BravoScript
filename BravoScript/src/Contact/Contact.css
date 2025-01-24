@@ -5,7 +5,7 @@
 
 .Con-contain{
     background-color: #fff;
-    height: 100vh; 
+    height: 105vh; 
     width: 90%; 
     padding:  5%;
     display: flex;
@@ -42,7 +42,7 @@
 
 .Con-form{
     display: flex;
-    width: 100vh;
+    width: 70vh;
     height: 80vh;
     flex-direction: column;
     border-radius: 40px;
@@ -67,7 +67,7 @@
     margin-bottom: 20px;
 }
 
-/* From Uiverse.io by cohencoo */ 
+ 
 .input {
     border-radius: 0px;
     outline: 2px solid #fe0000;
@@ -181,7 +181,8 @@
 
 
   .wrapper{
-    width: 1000px;
+    display: flex;
+    width: 900px;
     justify-content: center;
   }
   .wrapper textarea{
@@ -192,7 +193,7 @@
     padding: 15px;
     font-size: 16px;
     margin-top: 40px;
-    max-height: 330px;
+    max-height: 130px;
     caret-color: #fe0000;
     border: 2px solid #fe0000;
   }
@@ -201,8 +202,60 @@
   }
   textarea:is(:focus, :valid){
     padding: 14px;
-    border: 2px solid #fe0000;
+    border: 2px solid #a70000;
   }
   textarea::-webkit-scrollbar{
     width: 0px;
   }
+
+
+ 
+  .checkbox-wrapper{
+    margin-bottom: 40px;
+  }
+
+.checkbox-wrapper input[type="checkbox"] {
+    display: none;
+  }
+  
+  .checkbox-wrapper .terms-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-wrapper .terms-label .label-text {
+    margin-left: 10px;
+  }
+  
+  .checkbox-wrapper .checkbox-svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .checkbox-wrapper .checkbox-box {
+    fill: rgba(207, 205, 205, 0.425);
+    stroke: #fe0000;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+  
+  .checkbox-wrapper .checkbox-tick {
+    stroke:#fe0000;
+    stroke-dasharray: 172;
+    stroke-dashoffset: 172;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+  
+  .checkbox-wrapper input[type="checkbox"]:checked + .terms-label .checkbox-box,
+    .checkbox-wrapper input[type="checkbox"]:checked + .terms-label .checkbox-tick {
+    stroke-dashoffset: 0;
+  }
+
+
+  .Pro-btn{
+    display: flex;
+    justify-content: center;
+  }
+  
