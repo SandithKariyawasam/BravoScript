@@ -161,6 +161,7 @@
     margin: 0.3em 0;
     border-radius: 0.5em;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .menu li:hover{
@@ -176,3 +177,32 @@
     display: block;
     opacity: 1;
 }
+
+
+
+  .wrapper{
+    width: 1000px;
+    justify-content: center;
+  }
+  .wrapper textarea{
+    width: 100%;
+    resize: none;
+    height: 100px;
+    outline: none;
+    padding: 15px;
+    font-size: 16px;
+    margin-top: 40px;
+    max-height: 330px;
+    caret-color: #fe0000;
+    border: 2px solid #fe0000;
+  }
+  textarea::placeholder{
+    color: #7e7e7e;
+  }
+  textarea:is(:focus, :valid){
+    padding: 14px;
+    border: 2px solid #fe0000;
+  }
+  textarea::-webkit-scrollbar{
+    width: 0px;
+  }

@@ -54,8 +54,8 @@ const Contact = () => {
           </div>
           </div>
 
-          <div className="Con-row-two">
-            <textarea placeholder="Write your message here..." />
+          <div className="wrapper">
+              <textarea spellcheck="false" placeholder="Type something here..." required></textarea>
           </div>
           <div className="Con-row-four">
             <input type="checkbox" />I accept the Privacy Policy Terms
