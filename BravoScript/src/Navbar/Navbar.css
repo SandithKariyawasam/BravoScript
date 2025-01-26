@@ -29,6 +29,7 @@ ul li{
     margin: 10px 20px;
     font-size: 22px;
     cursor: pointer;
+    background: transparent;
 }
 
 ul li:hover{

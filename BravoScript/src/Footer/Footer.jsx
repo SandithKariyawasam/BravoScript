@@ -7,21 +7,27 @@ import x from '../assets/X.png'
 
 const Footer = () => {
   return (
+
+    <div className="Footer-contain">
     <div className='Footer'>
 
-        <div className="col-one">
+        <div className="Foo-col-one">
             <div className="Foot-logo">
                 <img src={logo} alt=''/>
             </div>
 
-            <div className="Foot-btn">
-
+            <div className="Foo-btn">
+                <button class="hero-btn">
+                    <span>
+                        Go to top
+                    </span>
+                </button>
             </div>
         </div>
         
-        <div className="col-two">
+        <div className="Foo-col-two">
             <div className="Foot-p">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, quam? Odit quasi autem recusandae sapiente! Facilis voluptas quasi, nihil dolorum voluptatum exercitationem corporis quisquam nostrum adipisci dolor esse repudiandae veritatis.
+            At our agency, we believe that every client is unique—just like a snowflake or a unicorn—but with fewer rainbows and absolutely no melting. Whether you need a dazzling website, a digital marketing campaign that actually works, stellar graphic design, or content that sings, we've got you covered.
             </div>
             
             <div className="Foot-social">
@@ -31,6 +37,7 @@ const Footer = () => {
             </div>
         </div>
       
+    </div>
     </div>
   )
 }

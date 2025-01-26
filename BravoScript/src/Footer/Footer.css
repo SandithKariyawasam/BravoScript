@@ -1,11 +1,69 @@
-.Footer{
+.Footer-contain{
     background-color: #E4FFFF;
-    height: 20vh; 
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.Footer{
+    height: 15vh; 
     width: 90%; 
     padding:  5%;
     display: flex;
+    background: transparent;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 20px;
+}
+
+.Footer .Foo-col-one{
+    display: flex;
+    flex-direction: row;
+    gap: 900px;
+    margin-bottom: 40px;
+    justify-content: center;
+    background: transparent;
+}
+
+.Footer .Foo-col-two{
+    display: flex;
+    flex-direction: row;
+    gap: 500px;
+    justify-content: center;
+    background: transparent;
+}
+
+.Footer .Foo-col-one .Foot-logo img{
+    background: transparent;
+} 
+.Footer .Foo-col-two .Foot-p{
+    color: #6C6C6C;
+    background: transparent;
+}
+
+.Footer .Foo-col-two .Foot-social{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    position: relative;
+    background: transparent;
+}
+
+.Footer .Foo-col-two .Foot-social img{
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    justify-content: center;
+}
+
+.Foo-btn {
+    justify-content: center;
+    background: transparent;
+}
+
+.Foo-btn .hero-btn{
+    background: #fff;
+    color: black;
+    box-shadow: none;
 }
