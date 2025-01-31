@@ -67,5 +67,37 @@
   }
   
   
-  
+  @media screen and (max-width:1630px){
+    
+    .ser-contain {
+        background-color: #fff;
+        height: 70vh; 
+        width: 90%; 
+        padding:  5%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px; 
+    }
+    .ser-text{
+        background: transparent;
+        text-align: center;
+        max-width: 850px;
+        margin-left: 180px;
+        margin-bottom: 50px;
+        margin-top: -60px;
+    }
+    
+      
+      .card {
+        background: transparent;
+        border-radius: 10px;
+        overflow: hidden;
+        max-width: 350px;
+        transition: transform 0.3s;
+        cursor: pointer;
+      }
+      
+      
+  }
   
