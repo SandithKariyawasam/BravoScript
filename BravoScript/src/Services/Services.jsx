@@ -8,38 +8,38 @@ import serimgthree from '../assets/Ser-img-3.png'
 const Services = () => {
   return (
     <div className='ser-container'>
-        <hr style={{ border: "1px solid black", margin: "20px 0" }} />
+      <hr style={{ border: "1px solid black", margin: "20px 0" }} />
       <div className="ser-contain">
 
-        
-          <div className="ser-text">
-              <img src={title} alt=' ' className='title'/>
-              <h1 className='ser-head'>We provide prominent IT solutions for you</h1>
-          </div>
-        
-          <div class="card-container">
-            <div class="card">
-              <div class="card-image">
-                <img src={serimgone} alt="Card 1"/>
-              </div>
-            </div>
 
-            <div class="card">
-              <div class="card-image">
-                <img src={serimgtwo} alt="Card 2"/>
-              </div>
-            </div>
+        <div className="ser-text">
+          <img src={title} alt=' ' className='title' />
+          <h1 className='ser-head'>We provide prominent IT solutions for you</h1>
+        </div>
 
-            <div class="card">
-              <div class="card-image">
-                <img src={serimgthree} alt="Card 3"/>
-              </div>
+        <div class="card-container">
+          <div class="cards" id="card">
+            <div class="content">
+              <img src={serimgone} alt="Card 1" />
             </div>
           </div>
+
+          <div class="cards" id="card">
+            <div class="content">
+              <img src={serimgtwo} alt="Card 1" />
+            </div>
+          </div>
+
+          <div class="cards" id="card">
+            <div class="content">
+              <img src={serimgthree} alt="Card 1" />
+            </div>
+          </div>
+        </div>
       </div>
 
 
-      </div>
+    </div>
   )
 }
 
