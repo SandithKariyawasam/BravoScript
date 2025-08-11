@@ -1,13 +1,13 @@
-.Team-container{
+.Team-container {
     padding-left: 8%;
     padding-right: 8%;
 }
 
-.Team-contain{
+.Team-contain {
     background-color: #fff;
-    height: 95vh; 
-    width: 90%; 
-    padding:  5%;
+    height: 95vh;
+    width: 90%;
+    padding: 5%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -15,7 +15,7 @@
     text-align: center;
 }
 
-.Team-cards{
+.Team-cards {
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -23,27 +23,29 @@
     text-align: center;
 }
 
-.Team-text img{
+.Team-text .head {
     height: 15px;
 }
 
-.Team-Details img{
+.Team-Details .member {
     cursor: pointer;
+    border-radius: 20px;
+    z-index: 1;
 }
 
-.Team-Details img:hover{
+.Team-Details .social:hover {
     opacity: 45%;
     transition: 1s;
 }
 
-.Team-text h1{
+.Team-text h1 {
     font-size: 50px;
     line-height: 1;
     letter-spacing: 2px;
     background: transparent;
 }
 
-.Team-text p{
+.Team-text p {
     color: #383838;
     margin-top: 70px;
     font-size: 18px;
@@ -51,7 +53,7 @@
     background: transparent;
 }
 
-.Team-cards .Team-Details h6{
+.Team-cards .Team-Details h6 {
     font-size: 25px;
     background-image: linear-gradient(90deg, #ff0000 0%, #000000 25%, #ff0000 50%, #000000 75%, #ff0000 100%);
     -webkit-background-clip: text;
@@ -59,13 +61,13 @@
     cursor: pointer;
 }
 
-.Team-cards .Team-Details p{
+.Team-cards .Team-Details p {
     font-size: 15px;
     opacity: 65%;
     cursor: pointer;
 }
 
-.Team-cards .Team-social{
+.Team-cards .Team-social {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -73,10 +75,109 @@
     margin-top: 20px;
 }
 
-.Team-cards .Team-social img{
+.Team-cards .Team-social .social {
     width: 50px;
     cursor: pointer;
 }
 
+/* From Uiverse.io by vinodjangid07 */ 
+.card {
+  position: relative;
+  width: 300px;
+  height: 380px;
+  background: lightgrey;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: all 1s ease-in-out;
+  border: 2px solid rgb(0, 0, 0);
+}
 
-  
+.icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+.icon .svg {
+  fill: rgba(255, 255, 255, 0.797);
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.box {
+  position: absolute;
+  padding: 10px;
+  text-align: right;
+  background: white;
+  border-top: 2px solid rgb(0, 0, 0);
+  border-right: 2px solid rgb(0, 0, 0);
+  border-radius: 10% 13% 42% 0%/10% 12% 75% 0%;
+  box-shadow: rgba(100, 100, 111, 0.364) -7px 7px 29px 0px;
+  transform-origin: bottom left;
+  transition: all 1s ease-in-out;
+}
+
+
+.box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.box:hover .svg {
+  fill: white;
+  border-radius: 20px;
+}
+
+.box1 {
+  width: 70%;
+  height: 70%;
+  bottom: -70%;
+  left: -70%;
+}
+
+.box1::before {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #ff53d4 60%, #62c2fe 90%);
+}
+
+.box1:hover::before {
+  opacity: 1;
+}
+
+.box1:hover .icon .svg {
+  filter: drop-shadow(0 0 5px white);
+}
+
+.box2 {
+  width: 50%;
+  height: 50%;
+  bottom: -50%;
+  left: -50%;
+  transition-delay: 0.2s;
+}
+
+.box2::before {
+  background: radial-gradient(circle at 30% 107%, #91e9ff 0%, #00ACEE 90%);
+}
+
+.box2:hover::before {
+  opacity: 1;
+}
+
+.box2:hover .icon .svg {
+  filter: drop-shadow(0 0 5px white);
+}
+
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card:hover .box {
+  bottom: -130px;
+  left: -35px;
+}
