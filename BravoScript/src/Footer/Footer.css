@@ -1,5 +1,5 @@
 .Footer-contain{
-    background-color: #E4FFFF;
+    background-color: #ffffff;
     padding-left: 8%;
     padding-right: 8%;
 }
@@ -63,7 +63,7 @@
 }
 
 .Foo-btn .hero-btn{
-    background: #fff;
-    color: black;
+    background: #000000;
+    color: rgb(255, 255, 255);
     box-shadow: none;
 }
