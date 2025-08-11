@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <>
             <div className="Footer-contain">
-                <hr style={{ border: "1px solid black", margin: "0px 0" }} />
+                <hr style={{ border: "1px solid black", margin: "40px 0" }} />
                 <div className='Footer'>
 
                     <div className="Foo-col-one">
