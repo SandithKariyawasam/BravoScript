@@ -10,7 +10,7 @@ import Pro5 from '../assets/Pro-5.jpg'
 const Projects = () => {
     return (
         <div className='Pro-container'>
-            <hr style={{ border: "1px solid black", margin: "20px 0" }} />
+            <hr style={{ border: "1px solid black", margin: "30px 0" }} />
             <div className="Pro-contain">
                 <div className="text">
                     <img src={text} alt='' />
