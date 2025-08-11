@@ -86,7 +86,10 @@
   overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: all 1s ease-in-out;
-  border: 2px solid rgb(0, 0, 0);
+  border-top: 3px solid #387ef0;
+  border-left: 3px solid #387ef0;
+  border-bottom: 3px solid #ff2288;
+  border-right: 3px solid #ff2288;
 }
 
 .icon {
@@ -106,8 +109,8 @@
   padding: 10px;
   text-align: right;
   background: white;
-  border-top: 2px solid rgb(0, 0, 0);
-  border-right: 2px solid rgb(0, 0, 0);
+  border-top: 2px solid #387ef0;
+  border-right: 2px solid #ff2288;
   border-radius: 10% 13% 42% 0%/10% 12% 75% 0%;
   box-shadow: rgba(100, 100, 111, 0.364) -7px 7px 29px 0px;
   transform-origin: bottom left;
