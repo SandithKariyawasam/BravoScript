@@ -46,14 +46,20 @@ pipeline {
         stage('Deploy') {
             agent any
             steps {
-                script {
-                    // We must use the image we just pushed
-                    // REPLACE 'YOUR_DOCKER_HUB_USERNAME' BELOW!
-                    def imageName = "swkariyawasam/bravoscript:${BUILD_NUMBER}"
-                    
-                    sh 'docker stop bravoscript-app || true'
-                    sh 'docker rm bravoscript-app || true'
-                    sh "docker run -d -p 1234:5173 --name bravoscript-app ${imageName}"
+                sshagent(['ec2-server-key']) {
+                    script {
+                        def imageName = "swkariyawasam/bravoscript:${BUILD_NUMBER}"
+                        
+                        // Updated to use ec2-user
+                        sh """
+                            ssh -o StrictHostKeyChecking=no ec2-user@51.21.218.225 '
+                                docker pull ${imageName}
+                                docker stop bravoscript-app || true
+                                docker rm bravoscript-app || true
+                                docker run -d -p 5173:5173 --name bravoscript-app ${imageName}
+                            '
+                        """
+                    }
                 }
             }
         }
