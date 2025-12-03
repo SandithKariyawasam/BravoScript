@@ -15,7 +15,7 @@ const Hero = () => {
 
                 <button class="hero-btn">
                     <span>
-                        Book Your Free Strategy Session
+                        Book Your Session
                     </span>
                 </button>
 
