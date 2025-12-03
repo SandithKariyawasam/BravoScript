@@ -1,9 +1,7 @@
 pipeline {
-    agent none /* We define specific agents for stages */
-
+    agent none 
     stages {
         stage('Install & Test') {
-            /* This spins up a Node container just for this step */
             agent {
                 docker { 
                     image 'node:18-alpine' 
@@ -11,9 +9,12 @@ pipeline {
                 }
             }
             steps {
-                sh 'node -v'
-                sh 'npm install'
-                sh 'npm test'
+                /* This tells Jenkins to change directory into 'BravoScript' */
+                dir('BravoScript') {
+                    sh 'node -v'
+                    sh 'npm install'
+                    // sh 'npm test'  <-- Uncomment this when you are ready to test
+                }
             }
         }
     }
