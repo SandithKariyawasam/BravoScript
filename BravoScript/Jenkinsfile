@@ -1,0 +1,20 @@
+pipeline {
+    agent none /* We define specific agents for stages */
+
+    stages {
+        stage('Install & Test') {
+            /* This spins up a Node container just for this step */
+            agent {
+                docker { 
+                    image 'node:18-alpine' 
+                    reuseNode true
+                }
+            }
+            steps {
+                sh 'node -v'
+                sh 'npm install'
+                sh 'npm test'
+            }
+        }
+    }
+}
