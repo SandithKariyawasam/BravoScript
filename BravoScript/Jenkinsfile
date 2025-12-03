@@ -2,7 +2,7 @@ pipeline {
     agent none 
 
     stages {
-        // Stage 1: Install & Test (Same as before)
+        // Stage 1: Install
         stage('Install & Test') {
             agent {
                 docker { 
@@ -13,20 +13,38 @@ pipeline {
             steps {
                 dir('BravoScript') {
                     sh 'npm install'
-                    // sh 'npm test' 
                 }
             }
         }
 
-        // Stage 2: Build Docker Image (NEW)
+        // Stage 2: Build
         stage('Build Image') {
-            agent any /* Uses your Jenkins container which has Docker CLI installed */
-            
+            agent any 
             steps {
                 dir('BravoScript') {
-                    echo 'Building Docker Image...'
-                    /* We use ${BUILD_NUMBER} to give every build a unique ID */
                     sh "docker build -t bravoscript:${BUILD_NUMBER} ."
+                }
+            }
+        }
+
+        // Stage 3: Deploy (NEW)
+        stage('Deploy') {
+            agent any
+            steps {
+                script {
+                    echo 'Deploying application...'
+                    
+                    // 1. Stop old container if it exists (|| true ignores errors if it doesn't exist)
+                    sh 'docker stop bravoscript-app || true'
+                    
+                    // 2. Remove old container
+                    sh 'docker rm bravoscript-app || true'
+                    
+                    // 3. Run the new version
+                    // -d: Run in background
+                    // -p 3000:3000: Map port 3000 on your laptop to 3000 in the container
+                    // --name: Give it a fixed name so we can find it next time
+                    sh "docker run -d -p 1234:1234 --name bravoscript-app bravoscript:${BUILD_NUMBER}"
                 }
             }
         }
