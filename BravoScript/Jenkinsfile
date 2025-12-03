@@ -1,6 +1,8 @@
 pipeline {
     agent none 
+
     stages {
+        // Stage 1: Install & Test (Same as before)
         stage('Install & Test') {
             agent {
                 docker { 
@@ -9,11 +11,22 @@ pipeline {
                 }
             }
             steps {
-                /* This tells Jenkins to change directory into 'BravoScript' */
                 dir('BravoScript') {
-                    sh 'node -v'
                     sh 'npm install'
-                    // sh 'npm test'  <-- Uncomment this when you are ready to test
+                    // sh 'npm test' 
+                }
+            }
+        }
+
+        // Stage 2: Build Docker Image (NEW)
+        stage('Build Image') {
+            agent any /* Uses your Jenkins container which has Docker CLI installed */
+            
+            steps {
+                dir('BravoScript') {
+                    echo 'Building Docker Image...'
+                    /* We use ${BUILD_NUMBER} to give every build a unique ID */
+                    sh "docker build -t bravoscript:${BUILD_NUMBER} ."
                 }
             }
         }
