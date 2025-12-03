@@ -2,7 +2,7 @@ pipeline {
     agent none 
 
     stages {
-        // Stage 1: Install
+        // Stage 1: Install & Test (Keep this as is)
         stage('Install & Test') {
             agent {
                 docker { 
@@ -17,34 +17,43 @@ pipeline {
             }
         }
 
-        // Stage 2: Build
-        stage('Build Image') {
+        // Stage 2: Build & Push (UPDATED)
+        stage('Build & Push Image') {
             agent any 
             steps {
-                dir('BravoScript') {
-                    sh "docker build -t bravoscript:${BUILD_NUMBER} ."
+                script {
+                    dir('BravoScript') {
+                        // This loads the username/password you saved in Step 2 into variables
+                        withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
+                            
+                            // 1. Log in to Docker Hub
+                            sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
+                            
+                            // 2. Build the image with your username tag
+                            // REPLACE 'YOUR_DOCKER_HUB_USERNAME' BELOW!
+                            sh "docker build -t swkariyawasam/bravoscript:${BUILD_NUMBER} ."
+                            
+                            // 3. Push the image to the internet
+                            // REPLACE 'YOUR_DOCKER_HUB_USERNAME' BELOW!
+                            sh "docker push swkariyawasam/bravoscript:${BUILD_NUMBER}"
+                        }
+                    }
                 }
             }
         }
 
-        // Stage 3: Deploy (NEW)
+        // Stage 3: Deploy (Keep this as is for now, but update the image name!)
         stage('Deploy') {
             agent any
             steps {
                 script {
-                    echo 'Deploying application...'
+                    // We must use the image we just pushed
+                    // REPLACE 'YOUR_DOCKER_HUB_USERNAME' BELOW!
+                    def imageName = "swkariyawasam/bravoscript:${BUILD_NUMBER}"
                     
-                    // 1. Stop old container if it exists (|| true ignores errors if it doesn't exist)
                     sh 'docker stop bravoscript-app || true'
-                    
-                    // 2. Remove old container
                     sh 'docker rm bravoscript-app || true'
-                    
-                    // 3. Run the new version
-                    // -d: Run in background
-                    // -p 3000:3000: Map port 3000 on your laptop to 3000 in the container
-                    // --name: Give it a fixed name so we can find it next time
-                    sh "docker run -d -p 1234:5173 --name bravoscript-app bravoscript:${BUILD_NUMBER}"
+                    sh "docker run -d -p 1234:5173 --name bravoscript-app ${imageName}"
                 }
             }
         }
