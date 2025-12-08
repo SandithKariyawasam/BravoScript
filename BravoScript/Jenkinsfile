@@ -4,15 +4,10 @@ pipeline {
     stages {
         stage('Install & Test') {
             agent {
-                docker { 
-                    image 'node:18-alpine' 
-                    reuseNode true
-                }
+                docker { image 'node:18-alpine'; reuseNode true }
             }
             steps {
-                dir('BravoScript') {
-                    sh 'npm install'
-                }
+                dir('BravoScript') { sh 'npm install' }
             }
         }
 
@@ -21,8 +16,8 @@ pipeline {
             steps {
                 script {
                     dir('BravoScript') {
-                        withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {                   
-                            sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"              
+                        withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
+                            sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
                             sh "docker build -t swkariyawasam/bravoscript:${BUILD_NUMBER} ."
                             sh "docker push swkariyawasam/bravoscript:${BUILD_NUMBER}"
                         }
@@ -31,21 +26,20 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy to K8s') {
             agent any
             steps {
-                sshagent(['ec2-server-key']) {
-                    script {
-                        def imageName = "swkariyawasam/bravoscript:${BUILD_NUMBER}"
-                        
-                        sh """
-                            ssh -o StrictHostKeyChecking=no ec2-user@51.21.218.225 '
-                                docker pull ${imageName}
-                                docker stop bravoscript-app || true
-                                docker rm bravoscript-app || true
-                                docker run -d -p 5173:5173 --name bravoscript-app ${imageName}
-                            '
-                        """
+                script {
+                    dir('BravoScript') {
+                        withKubeConfig([credentialsId: 'minikube-secret']) {
+                            
+                            sh "sed -i 's|swkariyawasam/bravoscript:.*|swkariyawasam/bravoscript:${BUILD_NUMBER}|' k8s/deployment.yaml"
+                            
+                            sh 'kubectl apply -f k8s/deployment.yaml'
+                            sh 'kubectl apply -f k8s/service.yaml'
+                            
+                            sh 'kubectl rollout restart deployment/bravoscript-deployment'
+                        }
                     }
                 }
             }
