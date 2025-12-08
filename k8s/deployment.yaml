@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bravoscript-deployment
+spec:
+  replicas: 2  
+  selector:
+    matchLabels:
+      app: bravoscript
+  template:
+    metadata:
+      labels:
+        app: bravoscript
+    spec:
+      containers:
+      - name: bravoscript-container
+        image: swkariyawasam/bravoscript:13 
+        ports:
+        - containerPort: 5173 
