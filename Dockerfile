@@ -5,13 +5,13 @@ FROM node:18-alpine
 WORKDIR /app
 
 # 3. Copy package.json and package-lock.json first (for better caching)
-COPY package*.json ./
+COPY BravoScript/package*.json ./
 
 # 4. Install dependencies
 RUN npm install
 
 # 5. Copy the rest of your application code
-COPY . .
+COPY BravoScript/ .
 
 # 6. CRITICAL: Set the environment variable for Port to 80
 # Your Go Backend expects the container to listen on Port 80
@@ -22,4 +22,4 @@ EXPOSE 80
 
 # 8. Define the command to run your app
 # (Ensure your package.json has a "start" script, e.g., "node index.js")
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
