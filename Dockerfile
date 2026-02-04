@@ -1,25 +1,31 @@
-# 1. Use an official Node.js runtime as a parent image
+# 1. Use Node.js
 FROM node:18-alpine
 
-# 2. Set the working directory inside the container
+# 2. Set the container working directory
 WORKDIR /app
 
-# 3. Copy package.json and package-lock.json first (for better caching)
-COPY BravoScript/package*.json ./
+# 3. Copy the ENTIRE repository into the container
+# This puts the 'BravoScript' folder inside /app/BravoScript
+COPY . .
 
-# 4. Install dependencies
+# 4. CHANGE DIRECTORY into your project folder
+WORKDIR /app/BravoScript
+
+# 5. Install dependencies
 RUN npm install
 
-# 5. Copy the rest of your application code
-COPY BravoScript/ .
+# 6. Build the React App (Creates a 'build' or 'dist' folder)
+RUN npm run build
 
-# 6. CRITICAL: Set the environment variable for Port to 80
-# Your Go Backend expects the container to listen on Port 80
+# 7. Install a simple static file server
+RUN npm install -g serve
+
+# 8. Set Port (React apps don't use this env var natively, but 'serve' does)
 ENV PORT=80
 
-# 7. Expose port 80 to the outside world
+# 9. Expose Port 80
 EXPOSE 80
 
-# 8. Define the command to run your app
-# (Ensure your package.json has a "start" script, e.g., "node index.js")
-CMD ["node", "index.js"]
+# 10. Start the server pointing to the 'build' folder
+# If your project creates a 'dist' folder instead (Vite), change 'build' to 'dist'
+CMD ["serve", "-s", "build", "-l", "80"]
